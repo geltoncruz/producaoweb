@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Formulário</title>
+</head>
+<body>
+  <h1>Aula de formulário html</h1>
+
+  <form name="cadastro">
+    <h2>inputs</h2>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="txt_nome" placeholder="Insira seu nome" required>
+<br>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="txt_email" placeholder="seu@email.com" required>
+
+<br>
+    <label for="telefone">Telefone</label>
+    <input type="tel" id="telefone" name="txt_tel" placeholder="(xx) xxxx-xxxx">
+<br>
+
+  <label for="senha">Senha</label>
+  <input type="password" name="senha" id="senha" placeholder="Informe sua senha">
+<br>
+
+  <h2>Radio, Check e selects</h2>
+    <h3>RadioBox</h3>
+    <h4>Opção <de></de> alimentação</h4>
+    <input type="radio" name="alimento" value="c" id="cafe">
+    <label for="cafe">Café</label>
+    <input type="radio" name="alimento" value="a" id="almoco">
+    <label for="almoco">Almoço</label>
+    <input type="radio" name="alimento" value="j" id="jantar">
+    <label for="jantar">Jantar</label>
+<br>
+
+  <h3>Checkbox</h3>
+
+  <input type="checkbox" name="frutas" value="laranja" id="laranja">
+  <label for="laranja">Laranja - </label>
+
+  <input type="checkbox" name="frutas" value="amora" id="amora">
+  <label for="amora">Amora - </label>
+
+  <input type="checkbox" name="frutas" value="ameixa" id="ameixa">
+  <label for="ameixa">Ameixa</label>
+
+<br>
+
+  <h3>Select</h3>
+  <label for="estado">Selecione um estado</label>
+  <select name="estado" id="estado">
+    <option value="">---</option>
+    <option value="Ac">Acre</option>
+    <option value="Am">Amapa</option>
+    <option value="Ba">Bahia</option>
+    <option value="Ce">Ceará</option>
+  </select>
+<br>
+<label for="Escholhaestado">Escolha uns estados</label>
+<select name="escolhaEstado" id="Escholhaestado" multiple>
+  <option value="">---</option>
+  <option value="Ac">Acre</option>
+  <option value="Am">Amapa</option>
+  <option value="Ba">Bahia</option>
+  <option value="Ce">Ceará</option>
+</select>
+<br>
+  <button>Enviar</button>
+
+  </form>
+</body>
+</html>
