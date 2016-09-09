@@ -1,0 +1,54 @@
+*{
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+#site{
+  width: 780px; /* largura*/
+  margin: 0 auto;
+  background-color: #999;
+}
+header{
+  width: 780px;
+  background-color: #ccc;
+  float: left;
+
+}
+header img{
+  width: 780px;
+  height: 180px;
+  margin-bottom: 10px;
+  float: left;
+}
+nav{
+  width:780px;
+  height: 30px;
+  background: #999;
+  float: left;
+}
+article{
+  width: 780px;
+  float: left;
+  padding: 50px 10px 0 10px;
+  background: #CCCCCC;
+  box-sizing: border-box;
+}
+article section{
+  width: 245px;
+  height: 180px;
+  background: #999;
+  float:left;
+  margin-left: 10px;
+}
+
+article section:first-child{
+  margin-left: 0;
+}
+
+footer{
+  width: 780px;
+  height: 50px;
+  background: #999;
+  float: left;
+  margin-top: 10px;
+}
