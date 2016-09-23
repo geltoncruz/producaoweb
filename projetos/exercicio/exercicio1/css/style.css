@@ -40,7 +40,7 @@ header nav a {
     text-decoration: none;
 }
 
-header nav a:hover,header nav .active{
+header nav a:hover,header nav .active,section.apartamentos a:hover{
   background: #FBED04;
   color: #403F45;
 }
@@ -95,7 +95,7 @@ section#banner form select{
   height: 30px;
   box-shadow: inset 2px 2px 2px #999;
 }
-section#banner form button{
+section#banner form button, section.apartamentos a{
   padding: 10px;
   background: #333333;
   color: #FBED04;
@@ -104,14 +104,53 @@ section#banner form button{
   font-weight: bold;
 }
 
+article{
+  padding: 30px 10px;
+  box-sizing: border-box;
+}
 
+article section.apartamentos{
+  width: 270px;
+  margin-right: 10px;
+  float: left;
+  text-align: center;
 
+}
+article section.apartamentos:nth-child(3){
+  margin-right: 0;
+}
 
+article section.apartamentos h1{
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 5px;
+}
+article section.apartamentos img{
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
 
+section.apartamentos a{
+  margin-left: 0;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  width: 200px !important;
 
+}
+ footer{
+   height: 65px;
+   background: #403F45;
+   text-align: center;
+   padding-top: 20px;
+   box-sizing: border-box;
+ }
+ footer address{
 
-
-
+   color : #fff;
+ }
 
 
 
