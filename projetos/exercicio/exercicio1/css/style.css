@@ -1,12 +1,15 @@
 *{
   font-family: verdana;
 }
+body{
+  margin: 0 !important;
+}
 div#site{
   width: 850px;
   margin: 0 auto;
 }
 
-header,article,footer{
+header,article,footer,section#banner{
   width: 850px;
   float: left;
 }
@@ -37,7 +40,87 @@ header nav a {
     text-decoration: none;
 }
 
-header nav a:hover{
+header nav a:hover,header nav .active{
   background: #FBED04;
   color: #403F45;
 }
+section#banner{
+  height: 415px;
+  padding-top: 50px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  background-image: url('../img/bgBanner.jpg');
+}
+
+section#banner form{
+  width: 355px;
+  padding: 20px;
+  float: left;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+section#banner form h2{
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #000;
+  font-weight: lighter;
+
+}
+
+section#banner form label{
+  float: left;
+  width: 130px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #313131;
+  margin-top: 10px;
+}
+section#banner form input, section#banner form select{
+  width: 200px;
+  height: 25px;
+  margin-bottom: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  box-shadow: inset 2px 2px 2px #eee;
+  background: #fff;
+}
+input[type="date"]{
+  background: url('../img/ico-calendar.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position-x: 175px !important;
+  background-color: #fff !important;
+}
+
+section#banner form select{
+  height: 30px;
+  box-shadow: inset 2px 2px 2px #999;
+}
+section#banner form button{
+  padding: 10px;
+  background: #333333;
+  color: #FBED04;
+  width: 200px;
+  margin-left: 130px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
