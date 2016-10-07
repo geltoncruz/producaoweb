@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dom - Documento object Model</title>
+</head>
+<body>
+  <h1>
+    <abbr title="Documento object Model">DOM</abbr>
+  </h1>
+  <form action="#">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" class="nome">
+
+    <label for="sobrenome">Sobrenome</label>
+    <input type="text" id="sobrenome" class="nome">
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email">
+
+    <button>Enviar</button>
+  </form>
+  <form action="#" name="calculo">
+    <h1>Calculadora</h1>
+    <label for="n1">Valor </label>
+    <input type="text" name="n1" id="n1">
+
+    <select name="operado" id="op">
+      <option value="sum">+</option>
+      <option value="sub">-</option>
+      <option value="mult">*</option>
+      <option value="div">/</option>
+    </select>
+
+    <label for="n2">Valor </label>
+    <input type="text" name="n2" id="n2">
+
+
+    <p>Resultado :<span></span></p>
+
+    <button id="calc">Calcular</button>
+
+  </form>
+  <script src="./js/app.js"></script>
+</body>
+</html>
