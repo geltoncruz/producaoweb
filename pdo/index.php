@@ -1,4 +1,6 @@
-	<!DOCTYPE html>
+	<?php
+	include 'kint/Kint.class.php';
+	 ?><!DOCTYPE html>
 	<html lang="en">
 	<head>
 	<meta charset="utf-8">
@@ -44,28 +46,51 @@
 	</section>
 
 	<section id="listaLivros" class="container">
+	<?php
+
+	$msg = $_GET['msg'];
+	
+
+
+		//d($msg);
+		if(isset($msg)){
+		if($msg == 'deleteConfirm'){
+?>			
+			<div class="alert alert-success">
+				<p>Livro removido com sucesso!</p>
+			</div>
+<?php 			
+		}
+	else if($msg == "deleteNoConfirm"){
+
+	//	echo d($msg);
+
+?>		
+			<div class="alert alert-danger">
+				<p>Livro Não removido com sucesso!</p>
+			</div>		
+<?php			
+}
+}
+	?>
+	
+
 	<h1>Livros catalogados</h1>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>Codigo</th>
 					<th>Titulo</th>
-					<td>Descricao</td>
-					<td>Opções</td>
+					<th>Descricao</th>
+					<th>Opções</th>
 				</tr>	
 			</thead>
 <?php
 
-	include 'kint/Kint.class.php';
 
-	$user = "root";
-	$pass = "";
-
+	include 'connection.php';
 	try{
 	
-		$dbh = new PDO('mysql:host=localhost;dbname=biblioteca',$user,$pass);
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 		$stmt = $dbh->prepare("SELECT * FROM livro");
 		$stmt->execute();
 ?>		
@@ -78,7 +103,10 @@
 	    			<td><?=$row['id']; ?></td>
 	    			<td><?=$row['titulo']; ?></td>
 	    			<td><?=$row['descricao']; ?></td>
-	    			<td><a href="livroController.php?pg=del&codigo=<?=$row['id']; ?>">Deletar</a></td>
+	    			<td>
+	    				<a href="livroController.php?pg=del&codigo=<?=$row['id']; ?>">Deletar</a> | 
+	    				<a href="livroController.php?pg=editar&codigo=<?=$row['id']; ?>">Atualizar</a>
+	    			</td>
     			</tr>
 <?php
 }

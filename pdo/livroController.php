@@ -1,15 +1,38 @@
 <?php
 
 	include 'kint/Kint.class.php';
+	include 'connection.php';
 
 	$user = "root";
 	$pass = "";
 
 	try{
-	
+
+		$pg = $_GET['pg'];
+		$codigo = $_GET['codigo'];
+
+		if(isset($pg) && isset($codigo)){
+			
+			if($pg == 'del'){
+
+				$query = "DELETE FROM livro where id = :id";
+				$stmt = $dbh->prepare($query);
+				$stmt->bindParam(':id',$codigo);
+				$stmt->execute();
+
+				echo "Deletado com sucesso<br>";
+				echo "Voltar para <a href='index.php?msg=deleteConfirm'>index</a>";
+			}
+			
+		}else{
+
+
+	/*()
 		$dbh = new PDO('mysql:host=localhost;dbname=biblioteca',$user,$pass);
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//d($dbh);
+
+	*/
 		
 		$titulo = $_GET['titulo'];
 		$descricao = $_GET['descricao'];
@@ -25,27 +48,18 @@
 
 		echo "Voltar para <a href='index.php'>index</a>";
 
-
-
-		//d($dbh);
-		
-		
-		
-
+}
 		//echo "Livro $titulo cadastrado com sucesso!";
 
 
 	} catch (PDOException $e){
 
 		echo $e->getMessage();
-		//$dbh->rollback();
-		
+		$dbh->rollback();
+		echo "Voltar para <a href='index.php?msg=deleteNoConfirm'>index</a>";
 
 		
 
 	}
 
-
-
-	
  ?>
