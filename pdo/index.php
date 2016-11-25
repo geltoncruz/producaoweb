@@ -1,135 +1,178 @@
-	<?php
-	include 'kint/Kint.class.php';
-	 ?><!DOCTYPE html>
-	<html lang="en">
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Biblioteca</title>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aluno</title>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
 
-	<!-- Bootstrap -->
-	<link href="./css/bootstrap.min.css" rel="stylesheet">
+    <section class="container container-fluid">
+      <div class="alert alert-danger" role="alert" >
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Cadastro não realizado
+    </div>
+    <div class="alert alert-success" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Done:</span>
+      <span class="glyphicon glyphicon-user"></span>
+      Cadastro  realizado com sucesso!
+    </div>
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	</head>
-	<body>
+      <article class="cadastrarLivro">
+        <h1>Cadastrar Livro</h1>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="titulo" class="col-sm-2 control-label">Titulo</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="titulo" placeholder="Titulo" name="titulo">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="descricao" class="col-sm-2 control-label">Descricao</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+            </div>
+          </div>
 
-	<section id="formulario"  class="container">
-		<form class="form-horizontal" action="livroController.php" method="get">
-		<h1>Cadastrar Livros</h1>
-	<div class="form-group">
-	<label for="titulo" class="col-sm-2 control-label">Titulo do livros</label>
-	<div class="col-sm-10">
-	  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo do Livro">
-	</div>
-	</div>
-	<div class="form-group">
-	<label for="descricao" class="col-sm-2 control-label">Descrição</label>
-	<div class="col-sm-10">
-	  <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
-	</div>
-	</div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-primary btnAddLivro">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </article>
+      <article class="listaLivros">
+        <h1>Lista de livros</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                <a href="#" title="Organizar por código">#Código</a>
+              </th>
+              <th>
+                <a href="#" title="Organizar por título">Título</a>
+              </th>
+              <th>
+                <a href="#" title="Organizar por Descrição">Descricao</a>
+              </th>
+              <th>
+                Opçõess
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                001
+              </td>
+              <td>
+                Dom Quixote
+              </td>
+              <td>
+                O cavaleiro andante
+              </td>
+              <td>
+                <button class="btn btn-primary">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button class="btn btn-danger">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                001
+              </td>
+              <td>
+                Dom Quixote
+              </td>
+              <td>
+                O cavaleiro andante
+              </td>
+              <td>
+                <button class="btn btn-primary">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button class="btn btn-danger delete">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
 
-	<div class="form-group">
-	<div class="col-sm-offset-2 col-sm-10">
-	  <button type="submit" class="btn btn-primary">Cadastrar</button>
-	</div>
-	</div>
-	</form>
-	</section>
-
-	<section id="listaLivros" class="container">
-	<?php
-
-	$msg = $_GET['msg'];
-	
-
-
-		//d($msg);
-		if(isset($msg)){
-		if($msg == 'deleteConfirm'){
-?>			
-			<div class="alert alert-success">
-				<p>Livro removido com sucesso!</p>
-			</div>
-<?php 			
-		}
-	else if($msg == "deleteNoConfirm"){
-
-	//	echo d($msg);
-
-?>		
-			<div class="alert alert-danger">
-				<p>Livro Não removido com sucesso!</p>
-			</div>		
-<?php			
-}
-}
-	?>
-	
-
-	<h1>Livros catalogados</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Codigo</th>
-					<th>Titulo</th>
-					<th>Descricao</th>
-					<th>Opções</th>
-				</tr>	
-			</thead>
+    </section>
+  </body>
+  <script src="./js/app.js"></script>
+</html>
 <?php
+/*
+include 'kint-master/Kint.class.php';
+$user = "root";
+$pass = "";
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=progweb', $user, $pass);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $sql = "INSERT INTO aluk no (nome,email) values ('gelton','gelton@midiaplural.com.br')";
+    // $sql = "DELETE FROM aluno where id = 0";
+    // $dbh->beginTransation();
+    // $dbh->exec($sql);
+    // $dbh->commit();
+
+    //Prepare to INSERT
 
 
-	include 'connection.php';
-	try{
-	
-		$stmt = $dbh->prepare("SELECT * FROM livro");
-		$stmt->execute();
-?>		
-<tfoot></tfoot>	
-			<tbody>
-<?php
-		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-?>      		 
-				<tr>
-	    			<td><?=$row['id']; ?></td>
-	    			<td><?=$row['titulo']; ?></td>
-	    			<td><?=$row['descricao']; ?></td>
-	    			<td>
-	    				<a href="livroController.php?pg=del&codigo=<?=$row['id']; ?>">Deletar</a> | 
-	    				<a href="livroController.php?pg=editar&codigo=<?=$row['id']; ?>">Atualizar</a>
-	    			</td>
-    			</tr>
-<?php
+    // $stmt = $dbh->prepare("INSERT INTO aluno (id,nome,email) values (:id,:nome,:email)");
+    $stmt = $dbh->prepare("SELECT * FROM aluno where nome like :nome ");
+
+    // $stmt->bindParam(':id',$id);
+    $stmt->bindParam(':nome',$nome);
+    // $stmt->bindParam(':email',$email);
+
+
+    // $id   = 3;
+    $nome = "Ana";
+    // $email = "ana@maria.com.br";
+
+    $stmt->execute();
+
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+    while ($row = $stmt->fetch() ) {
+      echo $row["id"]." ".$row["nome"]."<br>";
+      # code...
+    }
+
+    // d($stmt->execute());
+    // echo "$nome cadastrado com sucesso";
+    //
+    // $id = 4;
+    // $nome = "Mariana";
+    // $email = "Mariana@dionisio.com.br";
+    // $stmt->execute();
+    //
+    // echo "$nome cadastrado com sucesso";
+
+
+
+    $dbh = null;
+} catch (PDOException $e) {
+
+
+    print "Error!: " . $e->getMessage() . "<br/>";
+    $dbh->rollback();
+    die();
 }
+
+
  ?>
-			</tbody>
-		</table>
-	</section>
-<?php		
-	}catch (PDOException $e){
-
-		echo $e->getMessage();
-		//$dbh->rollback();
-		
-
-		
-
-	}
-?>			
-			
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="./js/bootstrap.min.js"></script>
-	</body>
-	</html>
